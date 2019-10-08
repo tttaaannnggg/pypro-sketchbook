@@ -24,16 +24,19 @@ class Car:
         print(args)
         
 
-thisCar = Car()
+cars = []
 
 def setup():
     size(200, 200)
-    global thisCar
 
 def draw():
-    global thisCar
+    global cars
     background(255)
+    for car in cars:
+        car.drive()
+        car.display()
     if mousePressed:
+        cars.append(Car())
         # when you call a method, you're passing it a second arg
         # thisCar.test('asdf') is basically thisCar.test(thisCar, 'asdf')
-        thisCar.test('asdf')
+        cars[-1].test('asdf')
